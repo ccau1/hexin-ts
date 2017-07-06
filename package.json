@@ -1,0 +1,40 @@
+{
+  "name": "tsnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "build": "npm run tsc:es5",
+    "coverage": "npm run test-cov && npm run test-remap",
+    "postinstall": "npm run build",
+    "tslint": "tslint ./*.ts ./lib/*.ts",
+    "test": "mocha --reporter spec --check-leaks --bail test/",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "tsc:es5": "tsc --project tsconfig.json",
+    "start": "concurrently \"npm run tsc:w\" \"nodemon dist/server.js --ignore *.ts\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.0.36",
+    "@types/node": "^6.0.38",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "express-session": "^1.14.2",
+    "jwt-simple": "^0.5.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.11.1",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "ts-express-decorators": "^1.4.10",
+    "typescript": "^2.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "nodemon": "^1.11.0"
+  }
+}
